@@ -179,6 +179,7 @@
                            android:layout_alignTop="@+id/blue1"
                            android:paddingLeft="-30dp"
                            android:paddingRight="-30dp"/>
+
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                           android:text="*Swipe right for help"
                           android:textColor="@android:color/black"
