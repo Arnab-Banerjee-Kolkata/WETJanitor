@@ -551,7 +551,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun drain() {
+    fun drain()
+    {
+        //Toast.makeText(this,"clicked",Toast.LENGTH_SHORT).show()
         var b1: Boolean = true
         var b2: Boolean = true
         var mpDrain: MediaPlayer
