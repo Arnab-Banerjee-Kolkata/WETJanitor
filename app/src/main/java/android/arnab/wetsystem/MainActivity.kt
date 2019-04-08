@@ -76,7 +76,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     var isRightValveOpen: Boolean = false
     var isFresh1Open: Boolean = false
     var isFresh2Open: Boolean = false
-    var isDraining: Boolean = false
     var ovr = 40
     var ul1 = 1960
     var ul2 = 0
@@ -290,8 +289,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if (isFresh1Open) {
                 Glide.with(this).load(R.drawable.green_ring).into(indicator4)
                 Glide.with(this).load(R.drawable.arrow_blue_right).into(blue4)
-                if (isDraining)
-                    drain()
+
             } else {
                 Glide.with(this).load(R.drawable.red_ring).into(indicator4)
                 Glide.with(this).load(R.drawable.arrow_grey_right).into(blue4)
@@ -302,8 +300,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if (isFresh2Open) {
                 Glide.with(this).load(R.drawable.green_ring).into(indicator3)
                 Glide.with(this).load(R.drawable.arrow_blue_right).into(blue3)
-                if (isDraining)
-                    drain()
+
             } else {
                 Glide.with(this).load(R.drawable.red_ring).into(indicator3)
                 Glide.with(this).load(R.drawable.arrow_grey_right).into(blue3)
@@ -406,7 +403,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         else if (v!!.equals(noBtn)) {
             if (isFresh1Open || isFresh2Open) {
-                isDraining = true
+
                 drain()
             }
         }
@@ -562,10 +559,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         {
             b1 = false
             var temp = ul3
+
             for (a in 1..ul3)
             {
                 makeScreenUnresponsive()
-                noBtn.setOnClickListener(null)
                 if(!mpDrain.isPlaying)
                 {
                     mpDrain.start()
@@ -598,10 +595,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                             }
                         }
                         ul3 = 0
-                        isDraining = false
                         Glide.with(this).load(R.drawable.arrow_grey_right).into(red1)
                         Glide.with(this).load(R.drawable.trans_grey).into(trans)
-                        noBtn.setOnClickListener(this)
                     }
                 }, a * 10L)
             }
@@ -613,7 +608,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             for (a in 1..ur3)
             {
                 makeScreenUnresponsive()
-                noBtn.setOnClickListener(null)
                 if(!mpDrain.isPlaying)
                 {
                     mpDrain.start()
@@ -646,10 +640,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                             }
                         }
                         ur3 = 0
-                        isDraining = false
                         Glide.with(this).load(R.drawable.arrow_grey_right).into(red1)
                         Glide.with(this).load(R.drawable.trans_grey).into(trans)
-                        noBtn.setOnClickListener(this)
                     }
                 }, a * 10L)
             }
